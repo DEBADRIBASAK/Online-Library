@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		List of all Books
+	</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style type="text/css">
+	.sch{
+		background-color: #6600ff;
+		color: #ffffff;
+	}
+</style>
+</head>
+<body>
+	<div class="navbar navbar-default n1">
+    <form class="form-inline" action="/Libr/selectbooks/" method="post">
+    	{% csrf_token %}
+    <div class="input-group">
+      <input type="text" class="form-control" size="50" placeholder="search book name,author or subject..." name="searchkey" required>
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+	<div class="container-fluid">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			<th>Book Name</th>
+			<th>Author</th>
+			<th>Call No.</th>
+			<th>Acc. No.</th>
+			<th>Subject</th>
+			<th>Choose</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for any in books %}
+			{% if any.is_available %}
+			<tr>
+			<td>{{ any.Name }}</td>
+			<td>{{ any.Author }}</td>
+			<td>{{ any.callno }}</td>
+			<td>{{ any.accno }}</td>
+			<td>{{ any.Subject }}</td>
+			<td><a href="{% url 'issue_it' bookname=any.callno %}" class="btn btn-lg btn-success">Issue</a></td>
+		</tr>
+		{% endif %}
+			{% endfor %}
+		{% if not isvalid %}
+		<script type="text/javascript">
+			window.alert('You Cannot take more than 4 books!');
+		</script>
+		{% endif %}
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

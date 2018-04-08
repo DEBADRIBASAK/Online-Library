@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>
+	A form Example
+ </title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <style>
+	.bg-1{
+		background-color : #cc00cc;
+		color : #ffffff;
+		height : 500px;
+		}
+	.p1{
+	 font-family: Comic Sans Ms;
+	 }
+	.bg-2{
+		background-color : #001a00;
+		color : #ffffff;
+		height : 100px;
+		}
+	.container-fluid{
+		padding-top : 5px;
+		padding-bottom : 5px;
+		}
+	.jumbotron{
+		padding-top : 5px;
+		padding-bottom : 5px;
+		}
+	.bt-1{
+		background-color: #ffff00;
+		}
+	#i1{
+		background-color : #cc00ff;
+		}
+	#i1:hover{
+	    background-color :#8f00b3;
+		color: #ffffff;
+		}
+	.n1{
+	 background-color : #001a00;
+	 }
+	.n1{
+	   background-color:#ffffff;
+	   }
+ </style>
+</head>
+<body>
+<nav class="navbar navbar-default n1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Online Library</a>
+    </div>
+    <ul class="nav navbar-nav n1">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#" id="i1">Explore</a></li>
+      <li><a href="#" id="i1">Contribute</a></li>
+      <li><a href="#" id="i1">About</a></li>
+    </ul>
+  </div>
+</nav>
+ <div class="jumbotron bg-1 text-center">
+  <h1>Welcome to the World of Books</h1>
+  <!--img src="tin.png" class="img-circle" width="350" height="300" alt="tintin"-->
+  <p class="blockquote p1">“A room without books is like a body without a soul.” </p><br><br>
+  <a href="{% url 'Log_in' %}" class="btn btn-default btn-lg bt-1">Login</a>
+  <a href="http://127.0.0.1:8000/Libr/userRegister/" class="btn btn-default btn-lg bt-1">SignUp</a>
+   <!--button action="/Documents/model_form_upload/" class="btn btn-default btn-lg bt-1">SignUp</button-->
+
+ </div>
+ <footer class="container-fluid bg-2 text-center">
+  <h3>Created By NITW Students</h3>
+ </footer>
+</body>
+</html>
+ 
+  
+	

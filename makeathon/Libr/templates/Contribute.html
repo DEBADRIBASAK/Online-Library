@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Contribute Books
+	</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		.bd{
+			background-color: #ff3300;
+		}
+		.ct1{
+			background-color: #ffffff;
+			width: 500px;
+			height: 600px;
+		}
+
+	</style>
+</head>
+<body class="bd">
+<div class="container text-center ct1">
+<h1>Contribute a Book</h1>
+<form method="post" class="form-group" action="/Libr/addBooks/">
+	{% csrf_token %}
+	<label>Call No:</label>
+	<input type="text" class="form-group" name="CallNo"><br>
+	<label>Account No:</label>
+	<input type="text" class="form-group" name="AccNo"><br>
+	<label>Name:</label>
+	<input type="text" class="form-group" name="BookName"><br>
+	<label>Author:</label>
+	<input type="text" class="form-group" name="Author"><br>
+	<label>Subject:</label>
+	<input type="text" name="Subject"><br>
+	<button type="submit" class="btn btn-lg btn-danger">Submit</button>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+UserProfile
+</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+.bd{
+ 	font-family: Didot;
+}
+.pic{
+	width: 300px;
+	height: 300px;
+}
+	.n1{
+	   background-color:#ffffff;
+	   }
+	   	#i1{
+		background-color :  #99bbff;
+		}
+	#i1:hover{
+	    background-color :#8f00b3;
+		color: #ffffff;
+		}
+	.n1{
+	 background-color : #001a00;
+	 }
+	 	.n1{
+	   background-color:#ffffff;
+	   }
+.bg-5{
+	background-color: #66ccff;
+	color: #ffffff;
+	height: 500px;
+	padding-bottom: 50px;
+}
+#hh{
+	text-shadow: 2px 2px;
+}
+.ct1{
+	background-color:  #99ffcc;
+	color: #000000;
+}
+.ct2{
+	background-color: #ff6699;
+	color: #ffffff;
+}
+.ct3{
+	background-color: #ff3300;
+	color:  #ffffff;
+}
+.ct5{
+	background-color:  #000000;
+	color:  #ffffff;
+}
+</style>
+</head>
+<body class=bd>
+<nav class="navbar navbar-default n1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Online Library</a>
+    </div>
+    <ul class="nav navbar-nav n1">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="{% url 'all_books' %}" id="i1">Explore</a></li>
+      <li><a href="{% url 'con' %}" id="i1">Contribute</a></li>
+      <li><a href="{% url 'about' %}" id="i1">About</a></li>
+      <li><a href="{% url 'log_out' %}" id="i1">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron text-center bg-5">
+<h1 id="hh">{{ profile.Name }}</h1>
+<img src="{{ profile.Pic.url }}" class="img-circle pic" alt="pics"><br><br>
+<a href="#" class="btn btn-primary">Change Pic</a><br><br>
+</div>
+<div class="container-fluid ct5">
+<h2>Book List</h2>
+</div>
+<div class="container-fluid">
+<table class="table table-striped">
+	<thead>
+		<tr>
+	<th>Book name</th>
+	<th>Author</th>
+	<th>Issue Date</th>
+	<th>Due Date</th>
+	<th>Action</th>
+</tr>
+</thead>
+<tbody>
+{% for anything in booklist %}
+<tr>
+<td>{{ anything.bookissue.Name }}</td>
+<td>{{ anything.bookissue.Author }}</td>
+<td>{{ anything.issue_date }}</td>
+<td>{{ anything.due_date }}</td>
+<td><a href="{% url 'reissue_it' booknum=anything.bookissue.callno %}" class="btn btn-lg btn-success">ReIssue</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<div class="footer">
+<div class="container-fluid ct5">
+<h2>Essential Information</h2>
+</div>
+<div class="container col-md-4 ct1">
+	<h1>#</h1><br>
+	<h3>{{ profile.NoofBooks }}</h3>
+</div>
+<div class="container col-md-4 offset-md-4 ct2">
+	<h1><i class="fa fa-inr"></i> </h1><br>
+	<h3>{{ profile.Fine }}</h3>
+</div>
+<div class="container col-md-4 offset-md-8 ct3">
+	<h1>&#9829</h1><br>
+	<h3>{{ profile.NoofContrib }}</h3>
+</div>
+</div>
+</body>
+</html>

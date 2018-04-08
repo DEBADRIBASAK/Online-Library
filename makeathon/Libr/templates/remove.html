@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		remove books
+	</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class= "container-fluid">
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th>Student Name</th>
+		<th>Book Name</th>
+	</tr>
+</thead>
+<tbody>
+{% for any in issues %}
+<tr>
+	<td>
+		{{ any.stud.Name }}
+	</td>
+	<td>
+		{{ any.bookissue.Name }}
+	</td>
+	<td>
+		<a href="{% url 'remove' booknum=any.bookissue.callno %}" class="btn btn-lg btn-danger">Remove</a>
+	</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</body>
+</html>
